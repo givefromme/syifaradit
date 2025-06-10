@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>for my heart🩵</title>
+  <style>
+    body {
+      font-family:sans-serif;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      color: #333;
+      text-align: center;
+      padding: 50px;
+      overflow-x: hidden;
+    }
+
+    .gift-box {
+      background-color: white;
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 600px;
+      margin: 0 auto;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      animation: fadeIn 2s ease-out;
+      position: relative;
+      z-index: 1;
+    }
+
+    .gift-emoji {
+      font-size: 60px;
+      display: inline-block;
+      animation: bounce 1.5s infinite;
+    }
+
+    h1 {
+      font-size: 30px;
+    }
+
+    p {
+      font-size: 15px;
+      margin: 18px 0;
+    }
+
+    .button {
+      background-color: #ff6f91;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 10px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #ff477e;
+    }
+
+    /* Slideshow Styles */
+    .slideshow {
+      margin-top: 20px;
+    }
+
+    .slideshow img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      animation: fadeImg 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    @keyframes fadeImg {
+      from { opacity: 0.3; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <!-- 🎁 Isi Kado -->
+  <div class="gift-box">
+    <div class="gift-emoji">🥺</div>
+    <h1>For My heart and My happiness🌹</h1>
+    <p></p>
+    <!-- Tombol untuk membuka isi teks -->
+<button class="button" onclick="tampilkanPesan()">Klik sayang</button>
+
+<!-- Isi pesan yang awalnya disembunyikan -->
+<div id="isi-pesan" style="display: none; margin-top: 20px;">
+  <p><strong>
+    Maaf ya atas semua kesalahan aku yang udah nyakitin kamu. <p>
+    Jujur, aku bingung harus mulai dari mana buat minta maaf dan balikin lagi kepercayaan kamu.
+
+    Aku kira aku udah ngerti kondisi kamu, tapi ternyata aku salah. Aku sadar, aku udah banyak bikin salah, banyak hal yang kamu nggak suka. Maaf banget.
+
+    Sejak kemarin, aku ngerasa kurang semangat aja. <p>
+    Aku sedih, kaya bingung aja pake cara apa lagi buat bujuk kamu kaya kehilangan arah tanpa kamu.
+
+    Aku masih pengen sama kamu. Aku bakal cari cara buat benerin semuanya. Aku sayang kamu, dan aku minta maaf dari hati.<p>
+    ~ ♥
+    <p>
+    Kalo dimaafin klik tombol dibawah ini yaa
+  </strong></p>
+</div>
+    <p>
+    <button class="button" onclick="showSurprise()">Iyaa aku maafin sayang</button>
+
+    <!-- 📸 Slideshow Foto -->
+    <div class="slideshow">
+      <img id="slideshow-img" src="https://placekitten.com/600/300" alt="Foto Lucu">
+    </div>
+  </div>
+
+  <!-- 🎉 Confetti JS -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <script>
+    function showSurprise() {
+      // Confetti
+      confetti({
+        particleCount: 200,
+        spread: 100,
+        origin: { y: 0.6 }
+      });
+
+      // Popup pesan
+      setTimeout(() => {
+        alert("✉️ Pesan Rahasia:\n\nKalau kamu baca ini tandanya aku dimaafiin, Makasi yaa kamu udah maafin aku sayangg🌹\nSemoga kedepannya kita baik baik aja yaa sayangg, ini satu lagi aku ada sesuatu buat kamu. coba klik yaa,sesudah klik ini terus klik layar hp kamunya yaa ");
+        window.location.href = "bunga1.html";
+      }, 500);
+    }
+
+    // Slideshow Foto Lucu
+    const images = [
+      "image/dit1.jpg", // contoh, bisa ganti foto sendiri
+      "image/dit2.jpg",
+      "image/dit3.jpg",
+      "image/dit4.jpg"
+    ];
+    let index = 0;
+    const slideshowImg = document.getElementById("slideshow-img");
+
+    setInterval(() => {
+      index = (index + 1) % images.length;
+      slideshowImg.src = images[index];
+    }, 3000); // Ganti setiap 3 detik  
+  document.querySelector(".button").addEventListener("click", function() {
+  const bgMusic = document.getElementById("bg-music");
+  bgMusic.play().catch(err => console.log("Gagal play:", err));
+});
+
+  function tampilkanPesan() {
+    document.getElementById("isi-pesan").style.display = "block";
+    document.querySelector("button").style.display = "none";
+
+    // Putar musik
+    const bgMusic = document.getElementById("bg-music");
+    bgMusic.play().catch((e) => console.log("Musik gagal diputar:", e));
+  }
+  </script>
+  <audio id="bg-music" loop>
+  <source src="music/maaf.mp3" type="audio/mp3">
+</audio>
+
+
+</body>
+</html>
